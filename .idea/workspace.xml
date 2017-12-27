@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5e72f8c-100e-46f7-9ca4-7a4d5c553fea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GetPromoDetails.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/amazon.config" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sync_deals.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/amazon_affiliate.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/general_utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="sync_deals.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sync_deals.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sync_deals.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -28,6 +24,16 @@
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,6 +86,7 @@
       <find>nodes_name</find>
       <find>config</find>
       <find>find_all</find>
+      <find>idea</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,6 +101,7 @@
         <option value="$PROJECT_DIR$/config/amazon.config" />
         <option value="$PROJECT_DIR$/utils/amazon_affiliate.py" />
         <option value="$PROJECT_DIR$/sync_deals.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -321,6 +329,14 @@
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
