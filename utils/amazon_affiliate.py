@@ -15,7 +15,10 @@ from flatten_dict import flatten
 from datetime import datetime
 import os
 from utils.general_utils import *
-
+import random
+import time
+from urllib.error import HTTPError
+import shelve
 tqdm.pandas(desc="my bar!")
 
 
@@ -62,16 +65,24 @@ def find_children(root_id, request, nodes_name):
     return nodes
 
 
+def error_handler(err):
+    ex = err['exception']
+    if isinstance(ex, HTTPError) and ex.code == 503:
+        time.sleep(5 + np.random.randint(5))
+        return True
+
 class Amazon:
-    def __init__(self, logger, aws_access_key_id, aws_secret_access_key, aws_associate_tag, aws_region, df_node_file,
-                 output_folder):
+    def __init__(self, logger, aws_access_key_id, aws_secret_access_key, aws_associate_tag, aws_region, aws_qps,
+                 df_node_file, output_folder, tmp_folder):
 
         self.logger = logger
+        self.today = datetime.now().strftime("%Y_%m_%d")
         self.df_nodes = None
         self.df_products_clean = None
         self.df_rss = None
         self.df_node_file = df_node_file
         self.output_folder = output_folder
+        self.shelve_file = os.path.join(tmp_folder, self.today)
         self.aws_access_key_id = aws_access_key_id
         self.aws_secret_access_key = aws_secret_access_key
         self.aws_associate_tag = aws_associate_tag
@@ -82,7 +93,9 @@ class Amazon:
                                         self.aws_associate_tag,
                                         Region=self.aws_region,
                                         Parser=lambda text: BeautifulSoup(text, features="xml"),
-                                        MaxQPS=0.9)
+                                        ErrorHandler=error_handler, MaxQPS=aws_qps,
+                                        CacheWriter=self.write_query_to_db,
+                                        CacheReader=self.read_query_from_db)
 
         self.root_nodes = {"Bebé": 9482651011,
                            "Deportes y  Aire Libre": 9482661011,
@@ -136,6 +149,14 @@ class Amazon:
 
         self.id_name = dict([(c[1], c[0]) for c in self.root_nodes.items()])
 
+    def write_query_to_db(self, cache_url, data):
+        with shelve.open(self.shelve_file) as db:
+            db[cache_url] = data
+
+    def read_query_from_db(self, cache_url):
+        with shelve.open(self.shelve_file) as db:
+            return db[cache_url] if cache_url in db.keys() else None
+
     def get_daily_promotions(self):
         write_running_log("get_daily_promotions", logger=self.logger)
         self.get_nodes()
@@ -179,8 +200,7 @@ class Amazon:
         write_running_log("get_all_promotions", logger=self.logger)
         assert self.df_nodes is not None, "df_nodes should be loaded first"
 
-        today = datetime.now().strftime("%Y_%m_%d")
-        df_products_clean_file = os.path.join(self.output_folder, 'amazon_promotions_' + today + '.xlsx')
+        df_products_clean_file = os.path.join(self.output_folder, 'amazon_promotions_' + self.today + '.xlsx')
 
         if os.path.exists(df_products_clean_file):
             self.df_products_clean = pd.read_excel(df_products_clean_file, sheetname="promotions")
@@ -261,8 +281,7 @@ class Amazon:
         assert self.df_nodes is not None and self.df_products_clean is not None, "df_nodes and df_products_clean " \
                                                                                  "should be loaded first"
 
-        today = datetime.now().strftime("%Y_%m_%d")
-        df_rss_file = os.path.join(self.output_folder, 'amazon_promotions_hot_' + today + '.xlsx')
+        df_rss_file = os.path.join(self.output_folder, 'amazon_promotions_hot_' + self.today + '.xlsx')
 
         if os.path.exists(df_rss_file):
             self.df_rss = pd.read_excel(df_rss_file, sheetname="hot_promotions")
