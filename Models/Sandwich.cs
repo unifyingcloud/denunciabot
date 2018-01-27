@@ -12,9 +12,9 @@ namespace Microsoft.Bot.Sample.FormBot
 {
     public enum SandwichOptions
     {
-       Hogar, Electronicos
+      Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes
     };
-    public enum LengthOptions { SixInch, FootLong };
+    public enum LengthOptions { M, FootLong };
     public enum BreadOptions { NineGrainWheat, NineGrainHoneyOat, Italian, ItalianHerbsAndCheese, Flatbread };
     public enum CheeseOptions { American, MontereyCheddar, Pepperjack };
     public enum ToppingOptions
@@ -32,11 +32,11 @@ namespace Microsoft.Bot.Sample.FormBot
     public class SandwichOrder
     {
         public SandwichOptions? Sandwich;
-        public LengthOptions? Length;
+       /* public LengthOptions? Length;
         public BreadOptions? Bread;
         public CheeseOptions? Cheese;
         public List<ToppingOptions> Toppings;
-        public List<SauceOptions> Sauce;
+        public List<SauceOptions> Sauce;*/
 
         public static IForm<SandwichOrder> BuildForm()
         {
@@ -46,7 +46,7 @@ namespace Microsoft.Bot.Sample.FormBot
             };
 
             return new FormBuilder<SandwichOrder>()
-                .Message("Bienvenido, hoy estas de suerte¡, te presentaré tus ofertas preferidas")
+                .Message("hola, hoy estas de suerte!, te presentaré tus ofertas preferidas")
                     .OnCompletion(processOrder)
                     .Build();
         }
