@@ -32,7 +32,7 @@ namespace Microsoft.Bot.Sample.FormBot
     public class SandwichOrder
     {
        // [Prompt("Selecciona tu oferta"), Terms("Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes")]
-        [Describe("Selecciona tu oferta")]
+        [Describe("Selecciona tu oferta","https://descuentos.ninja/wp-content/uploads/2017/12/white_logo_transparent@2x-2-e1512817509959.png","Mensaje","Titulo","Subtitulo")]
         public SandwichOptions? Oferta;
        /* public LengthOptions? Length;
         public BreadOptions? Bread;
