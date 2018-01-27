@@ -134,7 +134,6 @@
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/bin/ru/System.Spatial.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/bin/zh-Hans/System.Spatial.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/bin/zh-Hant/System.Spatial.resources.dll
-/Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/obj/Debug/Microsoft.Bot.Sample.FormBot.csprojResolveAssemblyReference.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/obj/Debug/Microsoft.Bot.Sample.FormBot.csproj.CoreCompileInputs.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/obj/Debug/FormBot.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/descuentos.ninja/obj/Debug/FormBot.pdb

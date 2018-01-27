@@ -13,9 +13,9 @@ namespace Microsoft.Bot.Sample.FormBot
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        internal static IDialog<SandwichOrder> MakeRootDialog()
+        internal static IDialog<AfiliadosAmazon> MakeRootDialog()
         {
-            return Chain.From(() => FormDialog.FromForm(SandwichOrder.BuildForm));
+            return Chain.From(() => FormDialog.FromForm(AfiliadosAmazon.BuildForm));
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace Microsoft.Bot.Sample.FormBot
                     case ActivityTypes.Typing:
                     case ActivityTypes.DeleteUserData:
                     default:
-                        Trace.TraceError($"Unknown activity type ignored: {activity.GetActivityType()}");
+                        Trace.TraceError($"Actividad desconocida: {activity.GetActivityType()}");
                         break;
                 }
             }

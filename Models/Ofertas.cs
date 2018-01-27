@@ -2,6 +2,8 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using System;
 using System.Collections.Generic;
+using Microsoft.Bot.Connector;
+
 #pragma warning disable 649
 
 // The SandwichOrder is the simple form you want to fill out.  It must be serializable so the bot can be stateless.
@@ -10,11 +12,11 @@ using System.Collections.Generic;
 // in a conversation.
 namespace Microsoft.Bot.Sample.FormBot
 {
-    public enum SandwichOptions
+    public enum OpcionesDeOferta
     {
       Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes
     };
-    public enum LengthOptions { M, FootLong };
+    /*public enum LengthOptions { M, FootLong };
     public enum BreadOptions { NineGrainWheat, NineGrainHoneyOat, Italian, ItalianHerbsAndCheese, Flatbread };
     public enum CheeseOptions { American, MontereyCheddar, Pepperjack };
     public enum ToppingOptions
@@ -26,29 +28,55 @@ namespace Microsoft.Bot.Sample.FormBot
     {
         ChipotleSouthwest, HoneyMustard, LightMayonnaise, RegularMayonnaise,
         Mustard, Oil, Pepper, Ranch, SweetOnion, Vinegar
-    };
+    };*/
 
     [Serializable]
-    public class SandwichOrder
+    public class AfiliadosAmazon
     {
        // [Prompt("Selecciona tu oferta"), Terms("Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes")]
         [Prompt("Por favor selecciona tu oferta: {||}"),Describe("Oferta","https://images-eu.ssl-images-amazon.com/images/G/30/associates/network/revamp/logo/logo_1.png","Mensaje","Descuentos.ninja","Siempre puedes encontrar mas opciones en http://descuentos.ninja")]
-        public SandwichOptions? Oferta;
+        public OpcionesDeOferta? Oferta;
        /* public LengthOptions? Length;
         public BreadOptions? Bread;
         public CheeseOptions? Cheese;
         public List<ToppingOptions> Toppings;
         public List<SauceOptions> Sauce;*/
 
-        public static IForm<SandwichOrder> BuildForm()
+
+
+        private static Attachment GetHeroCard()
         {
-            OnCompletionAsyncDelegate<SandwichOrder> processOrder = async (context, state) =>
+            var heroCard = new HeroCard
             {
-                await context.PostAsync("Este es el final de la forma");
+                Title = "Tus ofertas",
+                Subtitle = "Hemos encontrado estas ofertas para ti",
+                Text = "",
+                Images = new List<CardImage> { new CardImage("https://images-eu.ssl-images-amazon.com/images/I/510sFxlZHhL._AC_US218_.jpg"), new CardImage("https://images-eu.ssl-images-amazon.com/images/I/51JXRcvJXlL._AC_US218_.jpg") },
+                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vamos!", value: "https://www.amazon.com.mx") }
             };
 
-            return new FormBuilder<SandwichOrder>()
-                .Message("hola, hoy estas de suerte!, te presentaré tus ofertas preferidas")
+            return heroCard.ToAttachment();
+        }
+
+          
+
+        public static IForm<AfiliadosAmazon> BuildForm()
+        {
+            OnCompletionAsyncDelegate<AfiliadosAmazon> processOrder = async (context, state) =>
+            {
+
+                var messageReturn = context.MakeMessage();
+
+                var attachment = GetHeroCard();
+                messageReturn.Attachments.Add(attachment);
+
+                await context.PostAsync(messageReturn);
+
+               
+            };
+
+            return new FormBuilder<AfiliadosAmazon>()
+                .Message("Bienvenido")
                     .OnCompletion(processOrder)
                     .Build();
         }
