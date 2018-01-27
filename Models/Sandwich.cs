@@ -12,9 +12,7 @@ namespace Microsoft.Bot.Sample.FormBot
 {
     public enum SandwichOptions
     {
-        BLT, BlackForestHam, BuffaloChicken, ChickenAndBaconRanchMelt, ColdCutCombo, MeatballMarinara,
-        OvenRoastedChicken, RoastBeef, RotisserieStyleChicken, SpicyItalian, SteakAndCheese, SweetOnionTeriyaki, Tuna,
-        TurkeyBreast, Veggie
+       Hogar, Electronicos
     };
     public enum LengthOptions { SixInch, FootLong };
     public enum BreadOptions { NineGrainWheat, NineGrainHoneyOat, Italian, ItalianHerbsAndCheese, Flatbread };
@@ -44,11 +42,11 @@ namespace Microsoft.Bot.Sample.FormBot
         {
             OnCompletionAsyncDelegate<SandwichOrder> processOrder = async (context, state) =>
             {
-                await context.PostAsync("This is the end of the form, you would give a final confirmation, and then start the ordering process as needed.");
+                await context.PostAsync("Este es el final de la forma");
             };
 
             return new FormBuilder<SandwichOrder>()
-                    .Message("Welcome to the simple sandwich order bot!")
+                .Message("Bienvenido, hoy estas de suerte¡, te presentaré tus ofertas preferidas")
                     .OnCompletion(processOrder)
                     .Build();
         }
