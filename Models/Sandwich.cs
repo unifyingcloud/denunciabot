@@ -32,6 +32,7 @@ namespace Microsoft.Bot.Sample.FormBot
     public class SandwichOrder
     {
        // [Prompt("Selecciona tu oferta"), Terms("Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes")]
+        [Describe("Selecciona tu oferta")]
         public SandwichOptions? Oferta;
        /* public LengthOptions? Length;
         public BreadOptions? Bread;
