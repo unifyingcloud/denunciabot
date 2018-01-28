@@ -76,9 +76,10 @@ namespace Microsoft.Bot.Sample.FormBot
             };
 
             return new FormBuilder<AfiliadosAmazon>()
-                    .Message("Bienvenido")
-                    .Confirm("No verification will be shown", state => false)
-                    .OnCompletion(processOrder)
+                .Message("Bienvenido")
+                .AddRemainingFields()
+                .Confirm("No verification will be shown", state => false)
+                .OnCompletion(processOrder)
                 .Build();
         }
     };
