@@ -78,24 +78,7 @@ namespace Microsoft.Bot.Sample.FormBot
             return new FormBuilder<AfiliadosAmazon>()
                     .Message("Bienvenido")
                     .OnCompletion(processOrder)
-                    .Confirm(async (state) =>
-                    {
-                       
-                        String option = "";
-
-                switch (state.Oferta)
-                        {
-
-                    case OpcionesDeOferta.Videojuegos: option = "Videojuegos"; break;
-                    case OpcionesDeOferta.Bebes: option = "Videojuegos"; break;
-
-                     default: option = "Ninguna"; break;
-
-                        }
-                return new PromptAttribute($"Tu eleccion es {option}, de acuerdo?");
-                    })
-
-                    .Build();
+                .Build();
         }
     };
 }
