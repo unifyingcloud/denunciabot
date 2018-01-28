@@ -52,7 +52,7 @@ namespace Microsoft.Bot.Sample.FormBot
                 Subtitle = "Hemos encontrado estas ofertas para ti",
                 Text = "",
                 Images = new List<CardImage> { new CardImage("https://images-eu.ssl-images-amazon.com/images/I/510sFxlZHhL._AC_US218_.jpg"), new CardImage("https://images-eu.ssl-images-amazon.com/images/I/51JXRcvJXlL._AC_US218_.jpg") },
-                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vamos!", value: "https://www.amazon.com.mx") }
+                Buttons = new List<CardAction> { new CardAction(ActionTypes.OpenUrl, "Vamos!", value: "http://descuentos.ninja") }
             };
 
             return heroCard.ToAttachment();
