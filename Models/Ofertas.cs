@@ -34,7 +34,7 @@ namespace Microsoft.Bot.Sample.FormBot
     public class AfiliadosAmazon
     {
        // [Prompt("Selecciona tu oferta"), Terms("Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes")]
-        [Prompt("Por favor selecciona tu oferta: {||}"),Describe("Oferta",null,"Mensaje","Descuentos.ninja","Siempre puedes encontrar mas opciones en http://descuentos.ninja")]
+        [Prompt("Por favor selecciona tu oferta: {||}"),Describe("Oferta",null,"Mensaje","Elige una categoria:","Mas opciones en http://descuentos.ninja")]
         public OpcionesDeOferta? Oferta;
        /* public LengthOptions? Length;
         public BreadOptions? Bread;
