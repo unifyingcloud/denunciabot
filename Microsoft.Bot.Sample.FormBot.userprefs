@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{9C7E3A46-B60F-4052-9A21-DC8D1A942216}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Ofertas.cs">
+    <Files>
+      <File FileName="Models/Ofertas.cs" Line="57" Column="13" />
+      <File FileName="Controllers/MessagesController.cs" Line="18" Column="76" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Microsoft.Bot.Sample.FormBot PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
