@@ -31,7 +31,7 @@ namespace Microsoft.Bot.Sample.FormBot
     };*/
 
     [Serializable]
-    public class AfiliadosAmazon
+    public class Denuncias
     {
        // [Prompt("Selecciona tu oferta"), Terms("Videojuegos,Libros, Hogar,Musica, Deportes, Ropa, Bebes")]
         [Prompt("Por favor selecciona tu oferta: {||}"),Describe("Oferta",null,"Mensaje","Elige una categoria:","Mas opciones en http://descuentos.ninja")]
