@@ -60,9 +60,9 @@ namespace Microsoft.Bot.Sample.FormBot
 
           
 
-        public static IForm<AfiliadosAmazon> BuildForm()
+        public static IForm<Denuncias> BuildForm()
         {
-            OnCompletionAsyncDelegate<AfiliadosAmazon> processOrder = async (context, state) =>
+            OnCompletionAsyncDelegate<Denuncias> processOrder = async (context, state) =>
             {
 
                 var messageReturn = context.MakeMessage();
@@ -75,7 +75,7 @@ namespace Microsoft.Bot.Sample.FormBot
                
             };
 
-            return new FormBuilder<AfiliadosAmazon>()
+            return new FormBuilder<Denuncias>()
                 .Message("Bienvenido")
                 .AddRemainingFields()
                 .Confirm("No verification will be shown", state => false)

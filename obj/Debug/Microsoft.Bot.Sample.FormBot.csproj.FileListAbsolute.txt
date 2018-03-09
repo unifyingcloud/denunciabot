@@ -273,7 +273,6 @@
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/ru/System.Spatial.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/zh-Hans/System.Spatial.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/zh-Hant/System.Spatial.resources.dll
-/Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/Microsoft.Bot.Sample.FormBot.csprojResolveAssemblyReference.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/Microsoft.Bot.Sample.FormBot.csproj.CoreCompileInputs.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.pdb

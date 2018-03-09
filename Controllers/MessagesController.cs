@@ -13,9 +13,9 @@ namespace Microsoft.Bot.Sample.FormBot
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        internal static IDialog<AfiliadosAmazon> MakeRootDialog()
+        internal static IDialog<Denuncias> MakeRootDialog()
         {
-            return Chain.From(() => FormDialog.FromForm(AfiliadosAmazon.BuildForm));
+            return Chain.From(() => FormDialog.FromForm(Denuncias.BuildForm));
         }
 
         /// <summary>
