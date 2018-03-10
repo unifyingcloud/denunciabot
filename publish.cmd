@@ -1,3 +1,3 @@
 nuget restore
-msbuild Microsoft.Bot.Sample.FormBot.sln -p:DeployOnBuild=true -p:PublishProfile=descuentos-ninja-Web-Deploy.pubxml -p:Password=T51Mbi4BD1pZkXLKBwJlpgReil53JEtHEi72oWAd2shs2Th9qwdBWFhsgFcv
+msbuild Microsoft.Bot.Sample.FormBot.sln -p:DeployOnBuild=true -p:PublishProfile=denunciabot-Web-Deploy.pubxml -p:Password=csx3FexYHMSkrxHq77KFumQHzcswjQfvrvgH3hoeL8rNTnubPcTdx2iaZ1eu
 
