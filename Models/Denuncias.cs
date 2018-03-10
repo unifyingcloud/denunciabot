@@ -12,27 +12,27 @@ namespace Microsoft.Bot.Sample.FormBot
 {
     public enum OpcionesDenuncias
     {
-        DelitoUno, DelitoDos,DelitoTres
+        DelitoElectoral, DelitoDeTortura,ContraLasMujeres
     };
  
 
     [Serializable]
     public class Denuncias
     {
-        [Prompt("Por favor selecciona el delito que deseas denunciar: {||}"), Describe("Denuncia", null, "Mensaje", "Elige:", "Los delitos deben ser denunciados. Ayúdanos a prevenir y perseguir los delitos electorales")]
+        [Prompt("Por favor selecciona el delito que deseas denunciar: {||}"), Describe("Denuncia", null, "Mensaje", "Elige un delito:", "Los delitos deben ser denunciados.")]
         public OpcionesDenuncias? Denuncia;
        
 
         public static IForm<Denuncias> BuildForm()
         {
-            OnCompletionAsyncDelegate<Denuncias> processOrder = async (context, state) =>
+            OnCompletionAsyncDelegate<Denuncias> procesaDenuncia = async (context, state) =>
             {
                 await context.PostAsync("Gracias por tu informacion, es importante reportar delitos");
             };
 
             return new FormBuilder<Denuncias>()
                     .Message("Bienvenido al sistema privado inteligente de denuncias")
-                    .OnCompletion(processOrder)
+                  .OnCompletion(procesaDenuncia)
                     .Build();
         }
     };
