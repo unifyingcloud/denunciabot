@@ -19,7 +19,7 @@ namespace Microsoft.Bot.Sample.FormBot
     [Serializable]
     public class Denuncias
     {
-        [Prompt("Por favor selecciona el delito que deseas denunciar: {||}"), Describe("Denuncia", null, "Mensaje", "Elige:", "Mas informacion en https://gob.mx")]
+        [Prompt("Por favor selecciona el delito que deseas denunciar: {||}"), Describe("Denuncia", null, "Mensaje", "Elige:", "Los delitos deben ser denunciados. Ayúdanos a prevenir y perseguir los delitos electorales")]
         public OpcionesDenuncias? Denuncia;
        
 
