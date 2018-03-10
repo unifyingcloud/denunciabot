@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{9C7E3A46-B60F-4052-9A21-DC8D1A942216}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/Denuncias.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EmptyHTMLFile.html">
     <Files>
-      <File FileName="Models/Denuncias.cs" Line="22" Column="161" />
+      <File FileName="EmptyHTMLFile.html" Line="11" Column="76" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,9 +9,8 @@
           <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
             <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Denuncias.cs" selected="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="EmptyHTMLFile.html" selected="True" />
             </Node>
           </Node>
         </State>
