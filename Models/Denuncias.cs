@@ -21,6 +21,9 @@ namespace Microsoft.Bot.Sample.FormBot
     {
         [Prompt("Por favor selecciona el delito que deseas denunciar: {||}"), Describe("Denuncia", null, "Mensaje", "Elige un delito:", "Los delitos deben ser denunciados.")]
         public OpcionesDenuncias? Denuncia;
+        [Prompt("Por favor envianos una imagen: {||}"), Describe("Imagen", null, "Imagen", "Elige un delito:", "Los delitos deben ser denunciados.")]
+        public System.Drawing.Image imagen;
+
        
 
         public static IForm<Denuncias> BuildForm()
@@ -32,6 +35,7 @@ namespace Microsoft.Bot.Sample.FormBot
 
             return new FormBuilder<Denuncias>()
                     .Message("Bienvenido al sistema privado inteligente de denuncias")
+                .Message("Gracias por ayudar a eliminar futuros delitos")
                   .OnCompletion(procesaDenuncia)
                     .Build();
         }
