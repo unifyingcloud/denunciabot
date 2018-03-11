@@ -38,8 +38,14 @@
 
         private void ShowOptions(IDialogContext context)
         {
-            PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralOption, MujeresOption, TorturaOption }, "Desea denunciar un delito?", "Seleccione una opcion valida", 3);
-        }
+            try
+            {
+                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralOption, MujeresOption, TorturaOption }, "Desea denunciar un delito?", "Seleccione una opcion valida", 3);
+            }
+                catch (Exception ex)
+            {
+                }
+            }
 
         private async Task OnOptionSelected(IDialogContext context, IAwaitable<string> result)
         {
@@ -60,7 +66,7 @@
             }
             catch (Exception ex)
             {
-                await context.PostAsync($"Por favor selecciona o escribe una opcion!. Escribe ayuda o soporte y tu mensaje para registrar tu solicitud de otra manera.");
+                await context.PostAsync($"Por favor selecciona o escribe una opcion!. Escribe ayuda o soporte y tu mensaje para registrar tu solicitud de otra manera." +ex.Message);
 
                 context.Wait(this.MessageReceivedAsync);
             }
