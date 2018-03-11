@@ -52,16 +52,24 @@
                 await context.PostAsync($"Gracias por introducir su informacion");
             };
 
-            return new FormBuilder<MujeresQuery>()
+             return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
-              /*  .Field(nameof(MujeresQuery.correoElectronico))
-                .Field(nameof(MujeresQuery.fechaDelIncidente))
-                .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))*/
                 .Message("Su informacion esta siendo registrada")
                 .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
                 .Build();
-        } 
+            /*   return new FormBuilder<MujeresQuery>()
+                .Field(nameof(MujeresQuery.Nombre))
+              .Field(nameof(MujeresQuery.correoElectronico))
+                .Field(nameof(MujeresQuery.fechaDelIncidente))
+                .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
+                .Message("Su informacion esta siendo registrada")
+                .AddRemainingFields()
+                .OnCompletion(processMujeresSearch)
+                .Build();
+*/
+
+} 
 
        private async Task ResumeAfterMujeresFormDialog(IDialogContext context, IAwaitable<MujeresQuery> result)
         {
