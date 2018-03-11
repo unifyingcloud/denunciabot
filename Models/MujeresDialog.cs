@@ -14,17 +14,20 @@
     {
         [Prompt("Por favor digame su {&} (Nombre del denunciante)")]
         public string Nombre { get; set; }
-
-      /*  [Prompt("Por favor digame el {&}")]
-        public string NombreDeLaPersonaDenunciada { get; set; }
-
-
+       
         [Prompt("Cuando ocurrio la {&}?")]
         public DateTime fechaDelIncidente { get; set; }
 
 
+        [Prompt("Por favor digame el {&}")]
+        public string NombreDeLaPersonaDenunciada { get; set; }
+
         [Prompt("Por favor digame su {&}")]
         public string correoElectronico { get; set; }
+
+
+      /*  
+      
 
         [Prompt("Por favor envie una imagen del incidente {&}")]
         public Attachment imagen { get; set; }*/
@@ -47,18 +50,12 @@
 
      private IForm<MujeresQuery> BuildMujeresForm()
         {
-           /* OnCompletionAsyncDelegate<MujeresQuery> processMujeresSearch = async (context, state) =>
+             OnCompletionAsyncDelegate<MujeresQuery> processMujeresSearch = async (context, state) =>
             {
                 await context.PostAsync($"Gracias por introducir su informacion");
-            };*/
+            }; 
 
-             return new FormBuilder<MujeresQuery>()
-               // .Field(nameof(MujeresQuery.correoElectronico))
-              //  .Message("Su informacion esta siendo registrada")
-               // .AddRemainingFields()
-               // .OnCompletion(processMujeresSearch)
-                .Build();
-            /*   return new FormBuilder<MujeresQuery>()
+               return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
               .Field(nameof(MujeresQuery.correoElectronico))
                 .Field(nameof(MujeresQuery.fechaDelIncidente))
@@ -67,7 +64,7 @@
                 .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
                 .Build();
-*/
+ 
 
 } 
 
