@@ -15,7 +15,7 @@
         [Prompt("Por favor digame su {&} (Nombre del denunciante)")]
         public string Nombre { get; set; }
 
-        [Prompt("Por favor digame el {&}")]
+      /*  [Prompt("Por favor digame el {&}")]
         public string NombreDeLaPersonaDenunciada { get; set; }
 
 
@@ -27,7 +27,7 @@
         public string correoElectronico { get; set; }
 
         [Prompt("Por favor envie una imagen del incidente {&}")]
-        public Attachment imagen { get; set; }
+        public Attachment imagen { get; set; }*/
 
 
     }
