@@ -50,7 +50,7 @@
                 switch (optionSelected)
                 {
                     case MujeresOption:
-                      //  context.Call(new FlightsDialog(), this.ResumeAfterOptionDialog);
+                        context.Call(new MujeresDialog(), this.ResumeAfterOptionDialog);
                         break;
 
                     case ElectoralOption:
@@ -60,7 +60,7 @@
             }
             catch (TooManyAttemptsException ex)
             {
-                await context.PostAsync($"Ooops! Too many attemps :(. But don't worry, I'm handling that exception and you can try again!");
+                await context.PostAsync($"Por favor selecciona o escribe una opcion!. Escribe ayuda o soporte y tu mensaje para registrar tu solicitud de otra manera.");
 
                 context.Wait(this.MessageReceivedAsync);
             }
@@ -82,7 +82,7 @@
             }
             catch (Exception ex)
             {
-                await context.PostAsync($"Failed with message: {ex.Message}");
+                await context.PostAsync($"Algo ha fallado: {ex.Message}");
             }
             finally
             {
