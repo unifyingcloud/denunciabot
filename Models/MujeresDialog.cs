@@ -76,34 +76,28 @@
                 await context.PostAsync($"Hemos registrado su denuncia.");
 
                 var resultMessage = context.MakeMessage();
-                /*   resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
+                resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                 resultMessage.Attachments = new List<Attachment>();
-
-
-
-              foreach (var hotel in hotels)
+                HeroCard heroCard = new HeroCard()
                 {
-                    HeroCard heroCard = new HeroCard()
-                    {
-                        Title = hotel.Name,
-                        Subtitle = $"{hotel.Rating} starts. {hotel.NumberOfReviews} reviews. From ${hotel.PriceStarting} per night.",
-                        Images = new List<CardImage>()
+                    Title = "Denunica bot",
+                    Subtitle = "Su colaboracion, es importante",
+                    Images = new List<CardImage>()
                         {
-                            new CardImage() { Url = hotel.Image }
+                        new CardImage() { Url = "https://app.cedac.pgr.gob.mx/ATENCIONPGR/img/LogoAtenci%C3%B3nPGR-02.jpg" }
                         },
-                        Buttons = new List<CardAction>()
+                    Buttons = new List<CardAction>()
                         {
                             new CardAction()
                             {
-                                Title = "More details",
+                                Title = "Mas informacion",
                                 Type = ActionTypes.OpenUrl,
-                                Value = $"https://www.bing.com/search?q=hotels+in+" + HttpUtility.UrlEncode(hotel.Location)
+                            Value = $"https://www.gob.mx/pgr"
                             }
                         }
-                    };
+                };
 
-                    resultMessage.Attachments.Add(heroCard.ToAttachment());
-                }*/
+                resultMessage.Attachments.Add(heroCard.ToAttachment());
 
                 await context.PostAsync(resultMessage);
             }
@@ -113,11 +107,11 @@
 
                 if (ex.InnerException == null)
                 {
-                    reply = "You have canceled the operation. Quitting from the MujeresDialog";
+                    reply = "Operacion cancelada";
                 }
                 else
                 {
-                    reply = $"Oops! Something went wrong :( Technical Details: {ex.InnerException.Message}";
+                    reply = $"Error: {ex.InnerException.Message}";
                 }
 
                 await context.PostAsync(reply);
