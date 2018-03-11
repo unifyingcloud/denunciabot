@@ -3,7 +3,8 @@
     <Files>
       <File FileName="Models/MujeresDialog.cs" Line="17" Column="8" />
       <File FileName="Models/HotelsDialog.cs" Line="21" Column="12" />
-      <File FileName="Models/RootDialog.cs" Line="31" Column="48" />
+      <File FileName="Models/RootDialog.cs" Line="35" Column="14" />
+      <File FileName="Controllers/MessagesController.cs" Line="20" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
