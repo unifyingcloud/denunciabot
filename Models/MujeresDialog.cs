@@ -12,8 +12,12 @@
     [Serializable]
     public class MujeresQuery
     {
-        [Prompt("Por favor digame su {&}")]
+        [Prompt("Por favor digame su {&} (Nombre del denunciante)")]
         public string Nombre { get; set; }
+
+        [Prompt("Por favor digame el {&}")]
+        public string NombreDeLaPersonaDenunciada { get; set; }
+
 
         [Prompt("Cuando ocurrio la {&}?")]
         public DateTime fechaDelIncidente { get; set; }
@@ -51,9 +55,11 @@
             return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
                 .Field(nameof(MujeresQuery.correoElectronico))
+                .Field(nameof(MujeresQuery.fechaDelIncidente))
+                .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
                 .Field(nameof(MujeresQuery.imagen))
-                .Message("Registrando informacion")
                 .AddRemainingFields()
+                .Message("Su informacion esta siendo registrada")
                 .OnCompletion(processMujeresSearch)
                 .Build();
         } 
