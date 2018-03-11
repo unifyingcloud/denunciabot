@@ -53,10 +53,10 @@
             };
 
              return new FormBuilder<MujeresQuery>()
-                .Field(nameof(MujeresQuery.Nombre))
-                .Message("Su informacion esta siendo registrada")
-                .AddRemainingFields()
-                .OnCompletion(processMujeresSearch)
+                .Field(nameof(MujeresQuery.correoElectronico))
+              //  .Message("Su informacion esta siendo registrada")
+               // .AddRemainingFields()
+               // .OnCompletion(processMujeresSearch)
                 .Build();
             /*   return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
