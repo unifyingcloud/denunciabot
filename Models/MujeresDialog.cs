@@ -62,7 +62,7 @@
                 .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
                 .Message("Su informacion esta siendo registrada")
                 .AddRemainingFields()
-                .OnCompletion(processMujeresSearch)
+                //.OnCompletion(processMujeresSearch)
                 .Build();
  
 
@@ -73,7 +73,7 @@
             try
             {
                 
-                await context.PostAsync($"Hemos registrado su denuncia.");
+           //     await context.PostAsync($"Hemos registrado su denuncia.");
 
                 var resultMessage = context.MakeMessage();
                 resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
@@ -101,7 +101,7 @@
 
                 await context.PostAsync(resultMessage);
             }
-            catch (FormCanceledException ex)
+            catch (Exception ex)
             {
                 string reply;
 
@@ -111,7 +111,7 @@
                 }
                 else
                 {
-                    reply = $"Error: {ex.InnerException.Message}";
+                    reply = $"Error: {ex.Message}";
                 }
 
                 await context.PostAsync(reply);
