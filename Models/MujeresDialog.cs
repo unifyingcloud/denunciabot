@@ -21,7 +21,11 @@
 
         [Prompt("Por favor digame su {&}")]
         public string correoElectronico { get; set; }
-      
+
+        [Prompt("Por favor envie una imagen del incidente {&}")]
+        public Attachment imagen { get; set; }
+
+
     }
 
 
@@ -30,7 +34,7 @@
     {
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Agradecemos su apoyo, su informacion sera usada de forma confifencial.");
+            await context.PostAsync("Agradecemos su apoyo, su informacion sera usada de forma confidencial.");
 
             var mujeresFormDialog = FormDialog.FromForm(this.BuildMujeresForm, FormOptions.PromptInStart);
 
@@ -47,6 +51,7 @@
             return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
                 .Field(nameof(MujeresQuery.correoElectronico))
+                .Field(nameof(MujeresQuery.imagen))
                 .Message("Registrando informacion")
                 .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
