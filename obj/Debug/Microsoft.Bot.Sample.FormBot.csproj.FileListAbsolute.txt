@@ -137,3 +137,4 @@
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/Microsoft.Bot.Sample.FormBot.csproj.CoreCompileInputs.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.pdb
+/Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/Microsoft.Bot.Sample.FormBot.csprojResolveAssemblyReference.cache

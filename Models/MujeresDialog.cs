@@ -53,7 +53,7 @@
             };*/
 
              return new FormBuilder<MujeresQuery>()
-                .Field(nameof(MujeresQuery.correoElectronico))
+               // .Field(nameof(MujeresQuery.correoElectronico))
               //  .Message("Su informacion esta siendo registrada")
                // .AddRemainingFields()
                // .OnCompletion(processMujeresSearch)
