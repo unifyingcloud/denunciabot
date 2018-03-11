@@ -50,7 +50,7 @@
                 switch (optionSelected)
                 {
                     case MujeresOption:
-                        context.Call(new MujeresDialog(), this.ResumeAfterOptionDialog);
+                        context.Call(new MujeresDialog(), null);
                         break;
 
                     case ElectoralOption:
