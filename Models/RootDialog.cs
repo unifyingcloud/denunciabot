@@ -58,7 +58,7 @@
                         break;
                 }
             }
-            catch (TooManyAttemptsException ex)
+            catch (Exception ex)
             {
                 await context.PostAsync($"Por favor selecciona o escribe una opcion!. Escribe ayuda o soporte y tu mensaje para registrar tu solicitud de otra manera.");
 
