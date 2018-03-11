@@ -187,6 +187,10 @@
     <Compile Include="Models\Denuncias.cs" />
     <Compile Include="Models\RootDialog.cs" />
     <Compile Include="Models\SupportDialog.cs" />
+    <Compile Include="Models\HotelsDialog.cs" />
+    <Compile Include="Models\MujeresDialog.cs" />
+    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\HotelsQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

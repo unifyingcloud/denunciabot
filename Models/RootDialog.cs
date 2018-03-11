@@ -10,9 +10,12 @@
     [Serializable]
     public class RootDialog : IDialog<object>
     {
-        private const string FlightsOption = "Flights";
+        private const string ElectoralOption = "Delito Electoral";
 
-        private const string HotelsOption = "Hotels";
+        private const string TorturaOption = "Delito de Tortura";
+
+        private const string MujeresOption = "Delito Contra las mujeres";
+
 
         public async Task StartAsync(IDialogContext context)
         {
@@ -35,7 +38,7 @@
 
         private void ShowOptions(IDialogContext context)
         {
-            PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { FlightsOption, HotelsOption }, "Are you looking for a flight or a hotel?", "Not a valid option", 3);
+            PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralOption, MujeresOption, TorturaOption }, "Desea denunciar un delito?", "Seleccione una opcion valida", 3);
         }
 
         private async Task OnOptionSelected(IDialogContext context, IAwaitable<string> result)
@@ -46,11 +49,11 @@
 
                 switch (optionSelected)
                 {
-                    case FlightsOption:
+                    case MujeresOption:
                       //  context.Call(new FlightsDialog(), this.ResumeAfterOptionDialog);
                         break;
 
-                    case HotelsOption:
+                    case ElectoralOption:
                         //context.Call(new HotelsDialog(), this.ResumeAfterOptionDialog);
                         break;
                 }
@@ -67,7 +70,7 @@
         {
             var ticketNumber = await result;
 
-            await context.PostAsync($"Thanks for contacting our support team. Your ticket number is {ticketNumber}.");
+            await context.PostAsync($"Gracias por contactar al equipo de soporte. Su numero de incidencia es {ticketNumber}.");
             context.Wait(this.MessageReceivedAsync);
         }
 
