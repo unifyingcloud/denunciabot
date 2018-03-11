@@ -45,7 +45,7 @@
 
             var mujeresFormDialog = FormDialog.FromForm(this.BuildMujeresForm, FormOptions.PromptInStart);
 
-            context.Call(mujeresFormDialog, this.ResumeAfterMujeresFormDialog);
+        //    context.Call(mujeresFormDialog, this.ResumeAfterMujeresFormDialog);
         }
 
      private IForm<MujeresQuery> BuildMujeresForm()
@@ -60,9 +60,8 @@
               .Field(nameof(MujeresQuery.correoElectronico))
                 .Field(nameof(MujeresQuery.fechaDelIncidente))
                 .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
-                .Message("Su informacion esta siendo registrada")
                 .AddRemainingFields()
-                //.OnCompletion(processMujeresSearch)
+                .OnCompletion(processMujeresSearch)
                 .Build();
  
 
