@@ -54,9 +54,9 @@
 
             return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
-                .Field(nameof(MujeresQuery.correoElectronico))
+              /*  .Field(nameof(MujeresQuery.correoElectronico))
                 .Field(nameof(MujeresQuery.fechaDelIncidente))
-                .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
+                .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))*/
                 .Message("Su informacion esta siendo registrada")
                 .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
