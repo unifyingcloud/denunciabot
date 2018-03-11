@@ -12,15 +12,15 @@
     [Serializable]
     public class MujeresQuery
     {
-        [Prompt("Por favor digame su nombre {&}")]
+        [Prompt("Por favor digame su {&}")]
         public string Nombre { get; set; }
 
         [Prompt("Cuando ocurrio la {&}?")]
-        public DateTime FechaDelIncidente { get; set; }
+        public DateTime fechaDelIncidente { get; set; }
 
 
         [Prompt("Por favor digame su {&}")]
-        public string CorreoElectronico { get; set; }
+        public string correoElectronico { get; set; }
       
     }
 
@@ -30,7 +30,7 @@
     {
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Denuncia un delito contra las mujeres");
+            await context.PostAsync("Agradecemos su apoyo, su informacion sera usada de forma confifencial.");
 
             var mujeresFormDialog = FormDialog.FromForm(this.BuildMujeresForm, FormOptions.PromptInStart);
 
@@ -46,7 +46,7 @@
 
             return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.Nombre))
-                .Field(nameof(MujeresQuery.CorreoElectronico))
+                .Field(nameof(MujeresQuery.correoElectronico))
                 .Message("Registrando informacion")
                 .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
