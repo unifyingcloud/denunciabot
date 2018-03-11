@@ -22,6 +22,44 @@
         [Prompt("Por favor digame el {&}")]
         public string NombreDeLaPersonaDenunciada { get; set; }
 
+        [Prompt("Seleccione el estado {||}")]
+        public _Estado Estado{ get; set; }
+
+
+        public enum  _Estado { Chihuahua,
+Sonora,
+Coahuila,
+Durango,
+Oaxaca,
+Tamaulipas,
+Jalisco,
+Zacatecas,
+BajaCaliforniaSur,
+Chiapas,
+Veracruz,
+BajaCalifornia,
+NuevoLeon,
+Guerrero,
+SanLuisPotosi,
+Michoacán,
+Sinaloa,
+Campeche,
+QuintanaRoo,
+Yucatán,
+Puebla,
+Guanajuato,
+Nayarit,
+Tabasco,
+México,
+Hidalgo,
+Querétaro,
+Colima,
+Aguascalientes,
+Morelos,
+Tlaxcala,
+CiudadDeMexico }
+
+
         [Prompt("Por favor digame su {&}")]
         public string correoElectronico { get; set; }
 
