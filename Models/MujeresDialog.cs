@@ -57,9 +57,8 @@
                 .Field(nameof(MujeresQuery.correoElectronico))
                 .Field(nameof(MujeresQuery.fechaDelIncidente))
                 .Field(nameof(MujeresQuery.NombreDeLaPersonaDenunciada))
-                .Field(nameof(MujeresQuery.imagen))
-                .AddRemainingFields()
                 .Message("Su informacion esta siendo registrada")
+                .AddRemainingFields()
                 .OnCompletion(processMujeresSearch)
                 .Build();
         } 
