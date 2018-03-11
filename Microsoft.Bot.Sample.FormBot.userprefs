@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{9C7E3A46-B60F-4052-9A21-DC8D1A942216}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/HotelsDialog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/RootDialog.cs">
     <Files>
-      <File FileName="Models/MujeresDialog.cs" Line="56" Column="61" />
+      <File FileName="Models/MujeresDialog.cs" Line="17" Column="8" />
       <File FileName="Models/HotelsDialog.cs" Line="21" Column="12" />
+      <File FileName="Models/RootDialog.cs" Line="31" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,8 +13,9 @@
               <Node name="App_Start" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="HotelsDialog.cs" selected="True" />
+                <Node name="RootDialog.cs" selected="True" />
               </Node>
+              <Node name="Properties" expanded="True" />
               <Node name="Global.asax" expanded="True" />
             </Node>
           </Node>
