@@ -45,7 +45,7 @@
 
             var mujeresFormDialog = FormDialog.FromForm(this.BuildMujeresForm, FormOptions.PromptInStart);
 
-        //    context.Call(mujeresFormDialog, this.ResumeAfterMujeresFormDialog);
+         context.Call(mujeresFormDialog, this.ResumeAfterMujeresFormDialog);
         }
 
      private IForm<MujeresQuery> BuildMujeresForm()
