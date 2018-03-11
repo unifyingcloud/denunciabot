@@ -47,10 +47,10 @@
 
      private IForm<MujeresQuery> BuildMujeresForm()
         {
-            OnCompletionAsyncDelegate<MujeresQuery> processMujeresSearch = async (context, state) =>
+           /* OnCompletionAsyncDelegate<MujeresQuery> processMujeresSearch = async (context, state) =>
             {
                 await context.PostAsync($"Gracias por introducir su informacion");
-            };
+            };*/
 
              return new FormBuilder<MujeresQuery>()
                 .Field(nameof(MujeresQuery.correoElectronico))

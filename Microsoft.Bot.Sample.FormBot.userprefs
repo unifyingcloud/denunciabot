@@ -1,23 +1,20 @@
 ﻿<Properties StartupConfiguration="{9C7E3A46-B60F-4052-9A21-DC8D1A942216}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/MessagesController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/HotelsDialog.cs">
     <Files>
-      <File FileName="Models/Sandwich.cs" Line="1" Column="1" />
-      <File FileName="Models/RootDialog.cs" Line="56" Column="41" />
+      <File FileName="Models/MujeresDialog.cs" Line="56" Column="61" />
       <File FileName="Models/HotelsDialog.cs" Line="21" Column="12" />
-      <File FileName="Models/MujeresDialog.cs" Line="58" Column="16" />
-      <File FileName="Models/Hotel.cs" Line="1" Column="1" />
-      <File FileName="Models/HotelsQuery.cs" Line="18" Column="6" />
-      <File FileName="Controllers/MessagesController.cs" Line="20" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
             <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="MessagesController.cs" selected="True" />
+              <Node name="App_Start" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="HotelsDialog.cs" selected="True" />
               </Node>
-              <Node name="Models" expanded="True" />
+              <Node name="Global.asax" expanded="True" />
             </Node>
           </Node>
         </State>
