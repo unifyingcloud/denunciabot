@@ -28,9 +28,9 @@ namespace MultiDialogsBot.Dialogs
         {
             await context.PostAsync("Realizaremos su busqueda al confirmar su correo electrónico.");
 
-            var mujeresFormDialog = FormDialog.FromForm(this.BuildForm, FormOptions.PromptInStart);
+            var DenunciaDialog = FormDialog.FromForm(this.BuildForm, FormOptions.PromptInStart);
 
-         context.Call(BuscarDenunciaDialog, this.ResumeAfterFormDialog);
+         context.Call(DenunciaDialog, this.ResumeAfterFormDialog);
         }
 
      private IForm<BuscardenunciaQuery> BuildForm()
