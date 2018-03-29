@@ -10,12 +10,12 @@
     [Serializable]
     public class RootDialog : IDialog<object>
     {
-        private const string ElectoralDenunciaOption = "Hacer una nueva denuncia";
+        private const string ElectoralDenunciaOption = "Nueva denuncia";
 
 
-        private const string ElectoralBusquedaOption = "Verificar estatus de mi denuncia";
+        private const string ElectoralBusquedaOption = "Verificar denuncia";
 
-        private const string ElectoralAskOption = "Hacer una pregunta a Fepade";
+        private const string ElectoralAskOption = "Preguntar a Fepade";
 
  
 
