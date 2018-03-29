@@ -10,10 +10,14 @@
     [Serializable]
     public class RootDialog : IDialog<object>
     {
-        private const string ElectoralDenunciaOption = "Hacer una denuncia";
+        private const string ElectoralDenunciaOption = "Hacer una nueva denuncia";
 
 
-        private const string ElectoralBusquedaOption = "Ver una denuncia anterior";
+        private const string ElectoralBusquedaOption = "Verificar estatus de mi denuncia";
+
+        private const string ElectoralAskOption = "Hacer una pregunta a Fepade";
+
+ 
 
 //        private const string TorturaOption = "Contra tortura";
 
@@ -44,7 +48,7 @@
         {
             try
             {
-                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralBusquedaOption, ElectoralDenunciaOption }, "¿Qué desea hacer?", "Seleccione una opcion valida", 3);
+                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralBusquedaOption, ElectoralDenunciaOption,ElectoralAskOption }, "¿Qué desea hacer?", "Seleccione una opcion valida", 3);
             }
                 catch (Exception ex)
             {
