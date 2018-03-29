@@ -64,7 +64,7 @@
                 switch (optionSelected)
                 {
                     case ElectoralBusquedaOption:
-                        context.Call(new MujeresDialog(), this.ResumeAfterOptionDialog);
+                        context.Call(new BuscarDenunciaDialog(), this.ResumeAfterOptionDialog);
                         break;
 
                     case ElectoralDenunciaOption:
