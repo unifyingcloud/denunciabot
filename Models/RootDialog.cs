@@ -10,13 +10,16 @@
     [Serializable]
     public class RootDialog : IDialog<object>
     {
-        private const string ElectoralOption = "Electoral";
+        private const string ElectoralDenunciaOption = "Hacer una denuncia";
 
-        private const string TorturaOption = "Contra tortura";
 
-        private const string MujeresOption = "Contra mujeres";
+        private const string ElectoralBusquedaOption = "Ver una denuncia anterior";
 
-        private const string OtraOption = "Otro";
+//        private const string TorturaOption = "Contra tortura";
+
+//        private const string MujeresOption = "Contra mujeres";
+
+  //      private const string OtraOption = "Otro";
 
         public async Task StartAsync(IDialogContext context)
         {
@@ -41,7 +44,7 @@
         {
             try
             {
-                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralOption, MujeresOption, TorturaOption,OtraOption  }, "Desea denunciar un delito?", "Seleccione una opcion valida", 3);
+                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralBusquedaOption, ElectoralDenunciaOption }, "¿Qué desea hacer?", "Seleccione una opcion valida", 3);
             }
                 catch (Exception ex)
             {
@@ -56,11 +59,11 @@
 
                 switch (optionSelected)
                 {
-                    case MujeresOption:
+                    case ElectoralBusquedaOption:
                         context.Call(new MujeresDialog(), this.ResumeAfterOptionDialog);
                         break;
 
-                    case ElectoralOption:
+                    case ElectoralDenunciaOption:
                         //context.Call(new HotelsDialog(), this.ResumeAfterOptionDialog);
                         break;
                 }
