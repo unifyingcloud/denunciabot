@@ -137,7 +137,6 @@
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/Microsoft.Bot.Sample.FormBot.csproj.CoreCompileInputs.cache
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/obj/Debug/FormBot.pdb
-C:\Users\DefaultGuest\Source\Repos\denunciabot\obj\Debug\Microsoft.Bot.Sample.FormBot.csprojResolveAssemblyReference.cache
 C:\Users\DefaultGuest\Source\Repos\denunciabot\bin\Microsoft.Azure.Documents.ServiceInterop.dll
 C:\Users\DefaultGuest\Source\Repos\denunciabot\bin\DocumentDB.Spatial.Sql.dll
 C:\Users\DefaultGuest\Source\Repos\denunciabot\bin\roslyn\csc.exe
@@ -277,3 +276,4 @@ C:\Users\DefaultGuest\Source\Repos\denunciabot\bin\zh-Hans\System.Spatial.resour
 C:\Users\DefaultGuest\Source\Repos\denunciabot\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\DefaultGuest\Source\Repos\denunciabot\obj\Debug\FormBot.dll
 C:\Users\DefaultGuest\Source\Repos\denunciabot\obj\Debug\FormBot.pdb
+C:\Users\DefaultGuest\Source\Repos\denunciabot\obj\Debug\Microsoft.Bot.Sample.FormBot.csprojResolveAssemblyReference.cache

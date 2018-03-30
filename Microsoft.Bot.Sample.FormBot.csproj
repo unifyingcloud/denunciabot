@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project=".\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project=".\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('.\packages\Microsoft.Net.Compilers.1.2.1\build\Microsoft.Net.Compilers.props')" />
@@ -182,17 +182,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AyudaDenunciaDialog.cs" />
+    <Compile Include="Models\DenunciaDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Sandwich.cs" />
+    <Compile Include="Models\Demos\Sandwich.cs" />
     <Compile Include="Models\Denuncias.cs" />
     <Compile Include="Models\RootDialog.cs" />
     <Compile Include="Models\SupportDialog.cs" />
-    <Compile Include="Models\HotelsDialog.cs" />
+    <Compile Include="Models\Demos\HotelsDialog.cs" />
     <Compile Include="Models\MujeresDialog.cs" />
     <Compile Include="Models\BuscarDenunciaDialog.cs" />
-    
-    <Compile Include="Models\Hotel.cs" />
-    <Compile Include="Models\HotelsQuery.cs" />
+    <Compile Include="Models\Demos\Hotel.cs" />
+    <Compile Include="Models\Demos\HotelsQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

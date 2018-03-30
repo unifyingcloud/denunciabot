@@ -15,15 +15,9 @@
 
         private const string ElectoralBusquedaOption = "Verificar denuncia";
 
-        private const string ElectoralAskOption = "Preguntar a Fepade";
+        private const string ElectoralAyudaOption = "Preguntar a Fepade";
 
- 
-
-//        private const string TorturaOption = "Contra tortura";
-
-//        private const string MujeresOption = "Contra mujeres";
-
-  //      private const string OtraOption = "Otro";
+  
 
         public async Task StartAsync(IDialogContext context)
         {
@@ -48,7 +42,7 @@
         {
             try
             {
-                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralBusquedaOption, ElectoralDenunciaOption,ElectoralAskOption }, "¿Qué desea hacer?", "Seleccione una opcion valida", 3);
+                PromptDialog.Choice(context, this.OnOptionSelected, new List<string>() { ElectoralBusquedaOption, ElectoralDenunciaOption,ElectoralAyudaOption }, "¿Qué desea hacer?", "Seleccione una opcion valida", 3);
             }
                 catch (Exception ex)
             {
@@ -68,8 +62,13 @@
                         break;
 
                     case ElectoralDenunciaOption:
-                        //context.Call(new HotelsDialog(), this.ResumeAfterOptionDialog);
+                        context.Call(new DenunciaDialog(), this.ResumeAfterOptionDialog);
                         break;
+
+                    case ElectoralAyudaOption:
+                     context.Call(new AyudaDenunciaDialog(), this.ResumeAfterOptionDialog);
+                        break;
+
                 }
             }
             catch (Exception ex)

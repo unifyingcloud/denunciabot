@@ -11,56 +11,51 @@ namespace MultiDialogsBot.Dialogs
     using Microsoft.Bot.Connector;
 
     [Serializable]
-    public class BuscardenunciaQuery
+    public class AyudaDenunciaQuery
     {
       
         [Prompt("Por favor digame su {&}")]
-        public string correoElectronico { get; set; }
+        public string Pregunta{ get; set; }
  
+
+
 
     }
 
 
     [Serializable]
-    public class BuscarDenunciaDialog : IDialog<object>
+    public class AyudaDenunciaDialog : IDialog<object>
     {
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Realizaremos su busqueda al confirmar su correo electrónico.");
+            await context.PostAsync("Su pregunta ha sido procesada y será respondida a la brevedad");
 
             var DenunciaDialog = FormDialog.FromForm(this.BuildForm, FormOptions.PromptInStart);
 
          context.Call(DenunciaDialog, this.ResumeAfterFormDialog);
         }
 
-        private IForm<BuscardenunciaQuery> BuildForm()
+     private IForm<BuscardenunciaQuery> BuildForm()
         {
-            OnCompletionAsyncDelegate<BuscardenunciaQuery> processSearch = async (context, state) =>
-           {
-
-           
+             OnCompletionAsyncDelegate<BuscardenunciaQuery> processSearch = async (context, state) =>
+            {
                 await context.PostAsync($"Gracias por introducir su informacion");
-           };
+            }; 
 
-            return new FormBuilder<BuscardenunciaQuery>()
-             .AddRemainingFields()
-             .OnCompletion(processSearch)
-             .Build();
+               return new FormBuilder<BuscardenunciaQuery>()
+                .AddRemainingFields()
+                .OnCompletion(processSearch)
+                .Build();
+ 
 
-        }
+} 
 
        private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<BuscardenunciaQuery> result)
         {
             try
             {
-
-                //aqui se hace la conexion con la api de busqueda
-
-                //Buscar en la api usando correo electronico
-
-                //context.UserData to get email
-               // context.
-
+                
+           //     await context.PostAsync($"Hemos registrado su denuncia.");
 
                 var resultMessage = context.MakeMessage();
                 resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
@@ -68,7 +63,7 @@ namespace MultiDialogsBot.Dialogs
                 HeroCard heroCard = new HeroCard()
                 {
                     Title = "Denuncia FEPADE",
-                    Subtitle = "Hemos encontrado su denuncia",
+                    Subtitle = "Gracias por su apoyo",
                     Images = new List<CardImage>()
                         {
                         new CardImage() { Url = "https://app.cedac.pgr.gob.mx/ATENCIONPGR/img/LogoAtenci%C3%B3nPGR-02.jpg" }
@@ -77,7 +72,7 @@ namespace MultiDialogsBot.Dialogs
                         {
                             new CardAction()
                             {
-                                Title = "Ver estado de la denuncia",
+                                Title = "Ver preguntas más comunes",
                                 Type = ActionTypes.OpenUrl,
                             Value = $"https://www.gob.mx/pgr"
                             }
