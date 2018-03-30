@@ -48,7 +48,7 @@ namespace MultiDialogsBot.Dialogs
 
 } 
 
-       private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<MujeresQuery> result)
+       private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<BuscardenunciaQuery> result)
         {
             try
             {
