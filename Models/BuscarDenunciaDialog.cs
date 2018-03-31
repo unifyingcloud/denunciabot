@@ -80,8 +80,12 @@ namespace MultiDialogsBot.Dialogs
                                
 
                                 var JSONObj = ser.Deserialize<Dictionary<string, string>>(jsonResponse);
+                                foreach(var JsonVal in JSONObj)
+                                {
+                                    await context.PostAsync(JsonVal.Key + ", " + JsonVal.Value );
 
-                                await context.PostAsync(JSONObj.ToString());
+                                }
+                              
                                
                             }
                         }
