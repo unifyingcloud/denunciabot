@@ -71,7 +71,7 @@ namespace MultiDialogsBot.Dialogs
                     Subtitle = "Hemos encontrado su denuncia",
                     Images = new List<CardImage>()
                         {
-                        new CardImage() { Url = "https://app.cedac.pgr.gob.mx/ATENCIONPGR/img/LogoAtenci%C3%B3nPGR-02.jpg" }
+                        new CardImage() { Url = "http://despertardeoaxaca.com/wp-content/uploads/2015/11/PGR-LOGO-770x470.png" }
                         },
                     Buttons = new List<CardAction>()
                         {
