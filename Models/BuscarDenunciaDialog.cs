@@ -14,8 +14,8 @@ namespace MultiDialogsBot.Dialogs
     public class BuscardenunciaQuery
     {
       
-        [Prompt("Por favor digame su {&}")]
-        public string correoElectronico { get; set; }
+        [Prompt("Por favor digame el {&} que desea consultar")]
+        public string folio { get; set; }
  
 
     }
@@ -79,7 +79,7 @@ namespace MultiDialogsBot.Dialogs
                             {
                                 Title = "Ver estado de la denuncia",
                                 Type = ActionTypes.OpenUrl,
-                            Value = $"https://www.gob.mx/pgr"
+                            Value = $"https://www.fepadenet.gob.mx/folio.aspx?numfolio=00002420"
                             }
                         }
                 };
