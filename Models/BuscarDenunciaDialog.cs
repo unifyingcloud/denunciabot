@@ -79,7 +79,7 @@ namespace MultiDialogsBot.Dialogs
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.ToString());
+                    await context.PostAsync(ex.Message);
                 }
 
                 var resultMessage = context.MakeMessage();
@@ -97,7 +97,7 @@ namespace MultiDialogsBot.Dialogs
                         {
                             new CardAction()
                             {
-                                Title = context.UserData.ToString(),
+                                Title = "FEPADE",
                                 Type = ActionTypes.OpenUrl,
                             Value = $"https://www.fepadenet.gob.mx/folio.aspx?numfolio=00002420"
                             }
