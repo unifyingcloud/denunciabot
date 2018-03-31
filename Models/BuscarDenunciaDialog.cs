@@ -6,6 +6,7 @@ namespace MultiDialogsBot.Dialogs
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
+    using System.Web.Script.Serialization;
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Builder.FormFlow;
     using Microsoft.Bot.Connector;
@@ -17,6 +18,9 @@ namespace MultiDialogsBot.Dialogs
         [Prompt("Por favor digame el {&} que desea consultar")]
         public string folio { get; set; }
  
+
+        [Prompt("Por favor digame la contraseña")]
+        public string Contrasenia { get; set; }
 
     }
 
@@ -71,7 +75,13 @@ namespace MultiDialogsBot.Dialogs
                             {
                                 var jsonResponse = sr.ReadToEnd();
                              
-                                await context.PostAsync(jsonResponse);
+
+                                JavaScriptSerializer ser = new JavaScriptSerializer();
+                               
+
+                                var JSONObj = ser.Deserialize<Dictionary<string, string>>(jsonResponse);
+
+                                await context.PostAsync(JSONObj.ToString());
                                
                             }
                         }
