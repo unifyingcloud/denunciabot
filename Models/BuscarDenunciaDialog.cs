@@ -26,7 +26,7 @@ namespace MultiDialogsBot.Dialogs
     {
         public async Task StartAsync(IDialogContext context)
         {
-            await context.PostAsync("Realizaremos su busqueda al confirmar su correo electrónico.");
+           // await context.PostAsync("Realizaremos su busqueda al confirmar su correo electrónico.");
 
             var DenunciaDialog = FormDialog.FromForm(this.BuildForm, FormOptions.PromptInStart);
 
@@ -63,7 +63,7 @@ namespace MultiDialogsBot.Dialogs
                         webRequest.Method = "GET";
                         webRequest.Timeout = 12000;
                         webRequest.ContentType = "application/json";
-                        webRequest.Headers.Add("Authorization", "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN0cmluZyIsIm5iZiI6MTUyMjUzNjAxNSwiZXhwIjoxNTIyNTQzMjE1LCJpYXQiOjE1MjI1MzYwMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTEwOTAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMDkwIn0.VdPvE3vD2tkJFEJoOfZirXAp2qCCGN5SFDGi07IwNa4");
+                        webRequest.Headers.Add("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN0cmluZyIsIm5iZiI6MTUyMjUzNjAxNSwiZXhwIjoxNTIyNTQzMjE1LCJpYXQiOjE1MjI1MzYwMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTEwOTAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMDkwIn0.VdPvE3vD2tkJFEJoOfZirXAp2qCCGN5SFDGi07IwNa4");
 
                         using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
                         {
