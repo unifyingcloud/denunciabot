@@ -35,14 +35,14 @@ namespace MultiDialogsBot.Dialogs
          context.Call(DenunciaDialog, this.ResumeAfterFormDialog);
         }
 
-     private IForm<BuscardenunciaQuery> BuildForm()
+        private IForm<AyudaDenunciaQuery> BuildForm()
         {
-             OnCompletionAsyncDelegate<BuscardenunciaQuery> processSearch = async (context, state) =>
+            OnCompletionAsyncDelegate<AyudaDenunciaQuery> processSearch = async (context, state) =>
             {
-                await context.PostAsync($"Gracias por introducir su informacion");
+              //  await context.PostAsync($"Gracias por introducir su informacion");
             }; 
 
-               return new FormBuilder<BuscardenunciaQuery>()
+            return new FormBuilder<AyudaDenunciaQuery>()
                 .AddRemainingFields()
                 .OnCompletion(processSearch)
                 .Build();
@@ -50,7 +50,7 @@ namespace MultiDialogsBot.Dialogs
 
 } 
 
-       private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<BuscardenunciaQuery> result)
+        private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<AyudaDenunciaQuery> result)
         {
             try
             {

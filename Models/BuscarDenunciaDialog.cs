@@ -54,21 +54,41 @@ namespace MultiDialogsBot.Dialogs
             try
             {
 
-                //aqui se hace la conexion con la api de busqueda
+                const string WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia=01-00000044-5DC67D&password=213B62&esFepadeTel=false";
+                try
+                {
+                    var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
+                    if (webRequest != null)
+                    {
+                        webRequest.Method = "GET";
+                        webRequest.Timeout = 12000;
+                        webRequest.ContentType = "application/json";
+                        webRequest.Headers.Add("Authorization", "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN0cmluZyIsIm5iZiI6MTUyMjUzNjAxNSwiZXhwIjoxNTIyNTQzMjE1LCJpYXQiOjE1MjI1MzYwMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTEwOTAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMDkwIn0.VdPvE3vD2tkJFEJoOfZirXAp2qCCGN5SFDGi07IwNa4");
 
-                //Buscar en la api usando correo electronico
-
-                //context.UserData to get email
-               // context.
-
+                        using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
+                        {
+                            using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
+                            {
+                                var jsonResponse = sr.ReadToEnd();
+                             
+                                await context.PostAsync(jsonResponse);
+                               
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
 
                 var resultMessage = context.MakeMessage();
                 resultMessage.AttachmentLayout = AttachmentLayoutTypes.Carousel;
                 resultMessage.Attachments = new List<Attachment>();
                 HeroCard heroCard = new HeroCard()
                 {
-                    Title = "Denuncia FEPADE",
-                    Subtitle = "Hemos encontrado su denuncia",
+                    Title = "Ver estado de la denuncia",
+                    Subtitle = "Gracias por su apoyo",
                     Images = new List<CardImage>()
                         {
                         new CardImage() { Url = "http://despertardeoaxaca.com/wp-content/uploads/2015/11/PGR-LOGO-770x470.png" }
@@ -77,7 +97,7 @@ namespace MultiDialogsBot.Dialogs
                         {
                             new CardAction()
                             {
-                                Title = "Ver estado de la denuncia",
+                                Title = context.UserData.ToString(),
                                 Type = ActionTypes.OpenUrl,
                             Value = $"https://www.fepadenet.gob.mx/folio.aspx?numfolio=00002420"
                             }
