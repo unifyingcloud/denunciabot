@@ -5,9 +5,6 @@
         <State name="__root__">
           <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
             <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
-              <Node name="Global.asax" expanded="True" />
               <Node name="Web.config" selected="True" />
             </Node>
           </Node>
