@@ -168,7 +168,7 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Microsoft.Bot.Builder.Location">
-      <HintPath>packages\Microsoft.Bot.Builder.Location.2.1.0\lib\net46\Microsoft.Bot.Builder.Location.dll</HintPath>
+      <HintPath>packages\Microsoft.Bot.Builder.Location.2.1.0\lib\net45\Microsoft.Bot.Builder.Location.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
