@@ -95,7 +95,7 @@ namespace MultiDialogsBot.Dialogs
                 }
                 catch (Exception ex)
                 {
-                    await context.PostAsync(ex.Message);
+                    await context.PostAsync("No hemos encontrado su denuncia, desea intentarlo de nuevo?");
                 }
 
                 var resultMessage = context.MakeMessage();
