@@ -9,7 +9,7 @@ namespace MultiDialogsBot.Dialogs
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Builder.FormFlow;
     using Microsoft.Bot.Connector;
-    using Microsoft.Bot.Builder.Location;
+   // using Microsoft.Bot.Builder.Location;
 
     [Serializable]
     public class Denuncia
@@ -27,7 +27,7 @@ namespace MultiDialogsBot.Dialogs
 
     }
 
-
+    /*
     [Serializable]
     public class MyLocationDialog : IDialog<string>
     {
@@ -82,7 +82,7 @@ namespace MultiDialogsBot.Dialogs
         }
     }
 
-
+*/
     [Serializable]
     public class DenunciaDialog : IDialog<object>
     {
