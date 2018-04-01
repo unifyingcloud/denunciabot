@@ -3,7 +3,10 @@ namespace MultiDialogsBot.Dialogs
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
+    using System.Net;
+    using System.Text;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Script.Serialization;
@@ -59,10 +62,37 @@ namespace MultiDialogsBot.Dialogs
             var res = await result;
             try
             {
-
-                String WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia="  + res.folio +  "&password="  + res.Contrasenia +  "&esFepadeTel=false";
+                 
                 try
                 {
+
+                String auth_URL = "https://fepade-web.azurewebsites.net/api/v2/seguridad/login";
+                
+                    var authRequest = System.Net.WebRequest.Create(auth_URL);
+                if (authRequest != null)
+                    {
+                    authRequest.Method = "POST";
+                    authRequest.Timeout = 12000;
+                    authRequest.ContentType = "application/json";
+                    Stream dataStream = authRequest.GetRequestStream ();  
+                   
+                        byte[] data = Encoding.ASCII.GetBytes(@"{ ""nombreUsuario"":""admin001"",""passwordUsuario"":""admin001"",""tokenUsuario"":""admin001"",""esUsuarioAnonimo"":false,""rol"":""admin""}");
+                        dataStream.Write (data, 0, data.Length);  
+                    
+                    }
+                 
+
+                HttpWebResponse response = (HttpWebResponse)authRequest.GetResponse();
+                String r;
+                using (StreamReader rdr = new StreamReader(response.GetResponseStream()))
+                {
+                    r = rdr.ReadToEnd();
+                }
+                await context.PostAsync(r);
+
+
+                String WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia="  + res.folio +  "&password="  + res.Contrasenia +  "&esFepadeTel=false";
+              
                     var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
                     if (webRequest != null)
                     {
@@ -70,7 +100,7 @@ namespace MultiDialogsBot.Dialogs
                         webRequest.Timeout = 12000;
                         webRequest.ContentType = "application/json";
                         webRequest.Headers.Add("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN0cmluZyIsIm5iZiI6MTUyMjUzNjAxNSwiZXhwIjoxNTIyNTQzMjE1LCJpYXQiOjE1MjI1MzYwMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTEwOTAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMDkwIn0.VdPvE3vD2tkJFEJoOfZirXAp2qCCGN5SFDGi07IwNa4");
-
+                       // webRequest.
                         using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
                         {
                             using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
