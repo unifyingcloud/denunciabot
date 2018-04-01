@@ -55,10 +55,12 @@ namespace MultiDialogsBot.Dialogs
 
        private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<BuscardenunciaQuery> result)
         {
+            BuscardenunciaQuery res = (BuscardenunciaQuery)result;
+
             try
             {
 
-                const string WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia=01-00000044-5DC67D&password=213B62&esFepadeTel=false";
+                String WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia="  + res.folio +  "&password="  + res.Contrasenia +  "&esFepadeTel=false";
                 try
                 {
                     var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
