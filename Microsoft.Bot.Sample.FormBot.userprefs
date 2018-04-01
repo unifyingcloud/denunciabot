@@ -1,28 +1,13 @@
 ﻿<Properties StartupConfiguration="{9C7E3A46-B60F-4052-9A21-DC8D1A942216}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Models/RootDialog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Models/DenunciaDialog.cs">
     <Files>
-      <File FileName="Models/MujeresDialog.cs" Line="17" Column="8" />
-      <File FileName="Models/HotelsDialog.cs" Line="21" Column="12" />
-      <File FileName="Models/RootDialog.cs" Line="35" Column="14" />
+      <File FileName="Models/MujeresDialog.cs" Line="6" Column="34" />
+      <File FileName="Models/RootDialog.cs" Line="62" Column="31" />
       <File FileName="Controllers/MessagesController.cs" Line="20" Column="30" />
+      <File FileName="packages.config" Line="1" Column="1" />
+      <File FileName="Web.config" Line="117" Column="17" />
+      <File FileName="Models/DenunciaDialog.cs" Line="12" Column="33" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
-            <Node name="Microsoft.Bot.Sample.FormBot" expanded="True">
-              <Node name="App_Start" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="RootDialog.cs" selected="True" />
-              </Node>
-              <Node name="Properties" expanded="True" />
-              <Node name="Global.asax" expanded="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
