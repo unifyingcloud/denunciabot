@@ -1,62 +1,50 @@
-namespace MultiDialogsBot
-{
-    using System.Net;
-    using System.Net.Http;
-    using System.Threading.Tasks;
-    using System.Web.Http;
-    using Dialogs;
-    using Microsoft.Bot.Builder.Dialogs;
-    using Microsoft.Bot.Connector;
+using System.Threading.Tasks;
+using System.Web.Http;
 
+using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow;
+using System.Net.Http;
+using System.Web.Http.Description;
+using System.Diagnostics;
+
+namespace Microsoft.Bot.Sample.FormBot
+{
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-        /// <summary>
-        /// POST: api/Messages
-        /// Receive a message from a user and reply to it
-        /// </summary>
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        internal static IDialog<AfiliadosAmazon> MakeRootDialog()
         {
-            if (activity.Type == ActivityTypes.Message)
-            {
-                await Conversation.SendAsync(activity, () => new RootDialog());
-            }
-            else
-            {
-                this.HandleSystemMessage(activity);
-            }
-
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            return response;
+            return Chain.From(() => FormDialog.FromForm(AfiliadosAmazon.BuildForm));
         }
 
-        private Activity HandleSystemMessage(Activity message)
+        /// <summary>
+        /// POST: api/Messages
+        /// receive a message from a user and send replies
+        /// </summary>
+        /// <param name="activity"></param>
+        [ResponseType(typeof(void))]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
         {
-            if (message.Type == ActivityTypes.DeleteUserData)
+            if (activity != null)
             {
-                // Implement user deletion here
-                // If we handle user deletion, return a real message
-            }
-            else if (message.Type == ActivityTypes.ConversationUpdate)
-            {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
-            }
-            else if (message.Type == ActivityTypes.ContactRelationUpdate)
-            {
-                // Handle add/remove from contact lists
-                // Activity.From + Activity.Action represent what happened
-            }
-            else if (message.Type == ActivityTypes.Typing)
-            {
-                // Handle knowing tha the user is typing
-            }
-            else if (message.Type == ActivityTypes.Ping)
-            {
-            }
+                // one of these will have an interface and process it
+                switch (activity.GetActivityType())
+                {
+                    case ActivityTypes.Message:
+                        await Conversation.SendAsync(activity, MakeRootDialog);
+                        break;
 
-            return null;
+                    case ActivityTypes.ConversationUpdate:
+                    case ActivityTypes.ContactRelationUpdate:
+                    case ActivityTypes.Typing:
+                    case ActivityTypes.DeleteUserData:
+                    default:
+                        Trace.TraceError($"Actividad desconocida: {activity.GetActivityType()}");
+                        break;
+                }
+            }
+            return new HttpResponseMessage(System.Net.HttpStatusCode.Accepted);
         }
     }
 }
