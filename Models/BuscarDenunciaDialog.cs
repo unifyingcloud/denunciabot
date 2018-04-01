@@ -9,10 +9,12 @@ namespace MultiDialogsBot.Dialogs
     using System.Text;
     using System.Threading.Tasks;
     using System.Web;
+    using System.Web.Configuration;
     using System.Web.Script.Serialization;
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Builder.FormFlow;
     using Microsoft.Bot.Connector;
+   
 
     [Serializable]
     public class BuscardenunciaQuery
@@ -26,6 +28,11 @@ namespace MultiDialogsBot.Dialogs
         public string Contrasenia { get; set; }
 
     }
+
+
+   
+
+
 
 
     [Serializable]

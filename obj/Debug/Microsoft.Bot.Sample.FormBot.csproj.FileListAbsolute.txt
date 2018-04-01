@@ -178,6 +178,7 @@ C:/Users/DefaultGuest/Source/Repos/denunciabot/obj/Debug/Microsoft.Bot.Sample.Fo
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Bot.Builder.Azure.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Bot.Builder.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Bot.Builder.History.dll
+/Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Bot.Builder.Location.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Bot.Connector.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Data.Edm.dll
@@ -197,7 +198,6 @@ C:/Users/DefaultGuest/Source/Repos/denunciabot/obj/Debug/Microsoft.Bot.Sample.Fo
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Spatial.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Web.Http.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Web.Http.WebHost.dll
-/Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Autofac.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/EntityFramework.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/EntityFramework.SqlServer.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Microsoft.Azure.Documents.Client.xml
@@ -225,6 +225,7 @@ C:/Users/DefaultGuest/Source/Repos/denunciabot/obj/Debug/Microsoft.Bot.Sample.Fo
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Spatial.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Web.Http.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/System.Web.Http.WebHost.xml
+/Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/Autofac.xml
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/ar/Microsoft.Bot.Builder.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/cs/Microsoft.Bot.Builder.resources.dll
 /Users/jonatancisnerosrodriguez/Documents/GitHub/denunciabot/bin/de-dE/Microsoft.Bot.Builder.resources.dll

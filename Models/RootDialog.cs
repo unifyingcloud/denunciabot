@@ -63,6 +63,7 @@
 
                     case ElectoralDenunciaOption:
                         context.Call(new DenunciaDialog(), this.ResumeAfterOptionDialog);
+                        context.Call(new MyLocationDialog("1"), this.ResumeAfterOptionDialog);
                         break;
 
                     case ElectoralAyudaOption:

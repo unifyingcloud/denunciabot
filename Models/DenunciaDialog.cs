@@ -9,6 +9,7 @@ namespace MultiDialogsBot.Dialogs
     using Microsoft.Bot.Builder.Dialogs;
     using Microsoft.Bot.Builder.FormFlow;
     using Microsoft.Bot.Connector;
+    using Microsoft.Bot.Builder.Location;
 
     [Serializable]
     public class Denuncia
@@ -28,6 +29,61 @@ namespace MultiDialogsBot.Dialogs
 
 
     [Serializable]
+    public class MyLocationDialog : IDialog<string>
+    {
+        private readonly string channelId;
+
+        public MyLocationDialog(string channelId)
+        {
+            this.channelId = channelId;
+        }
+
+        public async Task StartAsync(IDialogContext context)
+        {
+            context.Wait(this.MessageReceivedAsync);
+        }
+
+        private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> argument)
+        {
+            var apiKey = "";// WebConfigurationManager.AppSettings["BingMapsApiKey"];
+            var options = LocationOptions.UseNativeControl | LocationOptions.ReverseGeocode;
+
+            var requiredFields = LocationRequiredFields.StreetAddress | LocationRequiredFields.Locality |
+                                 LocationRequiredFields.Region | LocationRequiredFields.Country |
+                                 LocationRequiredFields.PostalCode;
+
+            var prompt = "Cual es la direccion aproximanada donde sucedieron los hechos?";
+
+            var locationDialog = new LocationDialog(apiKey, this.channelId, prompt, options, requiredFields);
+
+            context.Call(locationDialog, this.ResumeAfterLocationDialogAsync);
+        }
+
+        private async Task ResumeAfterLocationDialogAsync(IDialogContext context, IAwaitable<Place> result)
+        {
+            var place = await result;
+
+            if (place != null)
+            {
+                var address = place.GetPostalAddress();
+                var formatteAddress = string.Join(", ", new[]
+                {
+                        address.StreetAddress,
+                        address.Locality,
+                        address.Region,
+                        address.PostalCode,
+                        address.Country
+                    }.Where(x => !string.IsNullOrEmpty(x)));
+
+                await context.PostAsync("TGracias, hemos anotado la direccion " + formatteAddress);
+            }
+
+            context.Done<string>(null);
+        }
+    }
+
+
+    [Serializable]
     public class DenunciaDialog : IDialog<object>
     {
         public async Task StartAsync(IDialogContext context)
@@ -36,7 +92,9 @@ namespace MultiDialogsBot.Dialogs
 
             var DenunciaDialog = FormDialog.FromForm(this.BuildForm, FormOptions.PromptInStart);
 
-         context.Call(DenunciaDialog, this.ResumeAfterFormDialog);
+              context.Call(DenunciaDialog, this.ResumeAfterFormDialog);
+
+           
         }
 
      private IForm<Denuncia> BuildForm()
