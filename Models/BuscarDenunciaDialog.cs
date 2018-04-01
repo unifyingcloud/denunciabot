@@ -82,11 +82,16 @@ namespace MultiDialogsBot.Dialogs
                                
 
                                 var JSONObj = ser.Deserialize<Dictionary<string, string>>(jsonResponse);
-                                foreach(var JsonVal in JSONObj)
+
+                                await context.PostAsync("Denuncia encontrada, esta es la descripcion de los hechos");
+                                await context.PostAsync(JSONObj["DescripcionHechos"]);
+
+
+                              /*  foreach(var JsonVal in JSONObj)
                                 {
                                     await context.PostAsync(JsonVal.Key + ", " + JsonVal.Value );
 
-                                }
+                                }*/
                               
                                
                             }
@@ -96,7 +101,7 @@ namespace MultiDialogsBot.Dialogs
                 catch (Exception ex)
                 {
                     await context.PostAsync("No hemos encontrado su denuncia, por favor intente de nuevo");
-//                    await context.PostAsync(ex.Message);
+                    await context.PostAsync(ex.Message);
                 }
 
                 var resultMessage = context.MakeMessage();
