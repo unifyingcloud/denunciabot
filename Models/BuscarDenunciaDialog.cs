@@ -58,7 +58,7 @@ namespace MultiDialogsBot.Dialogs
 
        private async Task ResumeAfterFormDialog(IDialogContext context, IAwaitable<BuscardenunciaQuery> result)
         {
-          
+            JavaScriptSerializer ser = new JavaScriptSerializer();
             var res = await result;
             try
             {
@@ -88,7 +88,7 @@ namespace MultiDialogsBot.Dialogs
                 {
                     r = rdr.ReadToEnd();
                 }
-                await context.PostAsync(r);
+                    var authObj = ser.Deserialize<Dictionary<string, string>>(r);
 
 
                 String WEBSERVICE_URL = "https://fepade-web.azurewebsites.net/api/v2/pde/denuncia?folioDenuncia="  + res.folio +  "&password="  + res.Contrasenia +  "&esFepadeTel=false";
@@ -99,7 +99,7 @@ namespace MultiDialogsBot.Dialogs
                         webRequest.Method = "GET";
                         webRequest.Timeout = 12000;
                         webRequest.ContentType = "application/json";
-                        webRequest.Headers.Add("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN0cmluZyIsIm5iZiI6MTUyMjUzNjAxNSwiZXhwIjoxNTIyNTQzMjE1LCJpYXQiOjE1MjI1MzYwMTUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTEwOTAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUxMDkwIn0.VdPvE3vD2tkJFEJoOfZirXAp2qCCGN5SFDGi07IwNa4");
+                        webRequest.Headers.Add("Authorization", authObj["tokenUsuario"]);
                        // webRequest.
                         using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
                         {
@@ -108,7 +108,7 @@ namespace MultiDialogsBot.Dialogs
                                 var jsonResponse = sr.ReadToEnd();
                              
 
-                                JavaScriptSerializer ser = new JavaScriptSerializer();
+                           
                                
 
                                 var JSONObj = ser.Deserialize<Dictionary<string, string>>(jsonResponse);
